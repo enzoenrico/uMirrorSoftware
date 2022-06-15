@@ -3,7 +3,6 @@ import time
 # from emotion_dec import ExpressionModel
 import emotion_dec
 import numpy as np
-import calibrate
 
 faceCasc = cv2.CascadeClassifier('haar_cascade.xml')
 model = emotion_dec.ExpressionModel('model.json', 'model_weights.h5')
@@ -73,6 +72,7 @@ def gen(camera):
             break
 
     cv2.destroyAllWindows()
+    print('[+]Camera fechada...')
 
 
-gen(Video())
+# gen(Video())

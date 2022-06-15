@@ -1,21 +1,24 @@
-import face_rec_v2 as rec
-import calibrate
 from face_rec_v2 import Video   
+import send2server
+import face_rec_v2
+import gather
+import tqdm
+
+import time
+import multiprocessing
 
 if __name__ == "__main__":
     print('[+]Inicializando...')
+    # face_rec_v2.gen(Video())
 
-    #Começar video, periodo de calibragem expressao facial
-    print("[+]Calibrando rosto...")
+    time.sleep(2)
 
-    rec.gen(Video())
+    print('[+]Iniciando recolhimento de dados')
+    print(gather.data_gather())
 
-    #fazer animação rostinho UI coisa do genero
-    #pegar informação compilar média fazer grafico / imagens
-    print("[+]Cauculando emoções") 
+    print('[+]Enviando dados para o Servidor...')
+    send2server.send()
+    print('[+]Dados enviados com sucesso!')
+    # send2server.send()    
 
-    print("[+] Enviando informações para o servidor")
-
-    #dar sugestões
-    print("[+]Sugestões...")
-
+#Criar metodo para criar imagem
