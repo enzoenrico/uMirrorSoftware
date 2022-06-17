@@ -2,14 +2,13 @@ from face_rec_v2 import Video
 import send2server
 import face_rec_v2
 import gather
-import tqdm
 
 import time
-import multiprocessing
+# import multiprocessing
 
 if __name__ == "__main__":
     print('[+]Inicializando...')
-    # face_rec_v2.gen(Video())
+    face_rec_v2.gen(Video())
 
     time.sleep(2)
 

@@ -1,5 +1,6 @@
     #Precisa de um intervalo de tempo / quant de informação pra parar o reconhecimento
     #Como implementar esse intervalo de forma que o feed de video continue funcionando?
+from asyncio import gather
 from datetime import date, datetime
 
 def data_gather():
@@ -24,14 +25,16 @@ def data_gather():
 
     #implementar todas as emoções
 
+    
+
     num_neutro = lines_in_file.count('Neutro \n')
     num_feliz = lines_in_file.count('Felicidade \n')
     num_raiva = lines_in_file.count('Raiva \n')
     num_nojo = lines_in_file.count('Nojo \n')
     num_medo = lines_in_file.count('Medo \n')
-    num_triste = lines_in_file.count('Tristeza \n')
+    num_triste = lines_in_file.count('Triste \n')
     num_surpresa = lines_in_file.count('Surpresa \n')
-
+        
     #implementar todas as emoções
     list_emotions.update({"Felicidade": num_feliz})
     list_emotions.update({"Neutro": num_neutro})
@@ -45,8 +48,7 @@ def data_gather():
     # print(f'[-]Emoções totais: {len(lines_in_file)}')
     # print(f'[+]Emoções distintas: {len(list_emotions)}')
     # print(list_emotions)
-
+    
     return list_emotions
     #Assign um valor para cada emoção, quando uma aparecer mudar uma var indicando seu valor, jogar os valores em uma lista e fazer sua média ou pegar o que mais aparece
     #Quem sabe criar um .json em um servidor mongo, mandar os dados, pegar e os processar novamente?
-
