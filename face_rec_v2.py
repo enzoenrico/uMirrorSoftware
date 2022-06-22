@@ -22,7 +22,7 @@ class Video(object):
         prediction = model.emotionDec(roi[np.newaxis, :, :, np.newaxis])
         return prediction
 
-# Essa função vai pega o face predic, talvez seja substituivel (re estudar)
+    # Essa função vai pega o face predic, talvez seja substituivel (re estudar)
     def get_video_facedec(self):
         _, fr = self.video.read()
         cor_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
@@ -51,6 +51,7 @@ class Video(object):
         return fr
 
 
+
 def gen(camera):
     # file_exp_read = open("expressions.txt", "r")
     while True:
@@ -63,6 +64,9 @@ def gen(camera):
         #     print('[+]Calibragem completa...')
         #     break
 
+# Achar um jeito de dar o break automaticamente
+# Talvez um botão fisico seria uma boa pra parar o recon?
+# Testar com o rasp o botao
         if cv2.waitKey(1) & 0xFF == ord('q'):
 
             # with file_exp:
