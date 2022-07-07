@@ -8,9 +8,7 @@ import gather
 
 emotion = gather.data_gather()
 
-client = MongoClient(
-    "mongodb+srv://admin:admin@cluster0.cgya6.mongodb.net/?retryWrites=true&w=majority")
-
+client = MongoClient()
 
 def send():
     db = client.umirror
