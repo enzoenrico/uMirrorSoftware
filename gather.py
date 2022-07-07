@@ -1,6 +1,5 @@
     #Precisa de um intervalo de tempo / quant de informação pra parar o reconhecimento
     #Como implementar esse intervalo de forma que o feed de video continue funcionando?
-from asyncio import gather
 from datetime import date, datetime
 
 def data_gather():

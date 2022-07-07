@@ -4,11 +4,15 @@ import time
 import emotion_dec
 import numpy as np
 
+import threading
+import time
+
 faceCasc = cv2.CascadeClassifier('haar_cascade.xml')
 model = emotion_dec.ExpressionModel('model.json', 'model_weights.h5')
 font = cv2.FONT_HERSHEY_COMPLEX
 
 file_exp = open('expressions.txt', 'w+')
+
 
 
 class Video(object):
@@ -21,6 +25,7 @@ class Video(object):
     def face_pred(fc, roi):
         prediction = model.emotionDec(roi[np.newaxis, :, :, np.newaxis])
         return prediction
+    num_exp = 0
 
     # Essa função vai pega o face predic, talvez seja substituivel (re estudar)
     def get_video_facedec(self):
@@ -34,13 +39,13 @@ class Video(object):
 
             roi = cv2.resize(fc, (48, 48))
 
-            # predic = model.emotionDec(roi[np.newaxis, :, :, np.newaxis])
-            # cv2.putText(fr, predic, (x, y), font, 0.5, (0, 255, 0), 2)
-            # cv2.rectangle(fr,(x,y),(x+w, y+z), (241, 226, 180), 2)
-
             # Escreve no console e no arquivo as emoções
             print(Video.face_pred(fc, roi))
             file_exp.write(Video.face_pred(fc, roi) + " \n")
+
+            Video.num_exp = Video.num_exp + 1
+
+            print(f'NumExp = {Video.num_exp}')
 
             # Esses 2 só colocam o texto e quadrado no video da tela, são removiveis e nao essenciais
 
@@ -51,7 +56,6 @@ class Video(object):
         return fr
 
 
-
 def gen(camera):
     # file_exp_read = open("expressions.txt", "r")
     while True:
@@ -60,14 +64,10 @@ def gen(camera):
         # Video
         cv2.imshow('Face_Rec', frame)
 
-        # if calibrate >= 50:
-        #     print('[+]Calibragem completa...')
-        #     break
-
-# Achar um jeito de dar o break automaticamente
+# Achar um jeito de dar o break automaticamente [Achei sou foda]
 # Talvez um botão fisico seria uma boa pra parar o recon?
 # Testar com o rasp o botao
-        if cv2.waitKey(1) & 0xFF == ord('q'):
+        if cv2.waitKey(1) & 0xFF == ord('q') or Video.num_exp >= 50:
 
             # with file_exp:
             #     lines_in_file = len(file_exp.readlines())
@@ -77,6 +77,5 @@ def gen(camera):
 
     cv2.destroyAllWindows()
     print('[+]Camera fechada...')
-
 
 # gen(Video())
