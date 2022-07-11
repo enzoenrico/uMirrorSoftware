@@ -23,10 +23,5 @@ if __name__ == "__main__":
 
 # Trabalhando em normalizar imagem, mudar niveis de contraste luz etc
 
-# Fazer periodo de calibragem (Importante!!)
-
-# :Trabalhando nisso agora [CONSEGUI MEU DEUS EU SOU MTO BURRO NAMORAL]
-
-# Criar metodo para criar imagem [?] {Wtf qq eu tava tentando fala aqui -Enzo}
-
 # Adicionar um ping para um servidor a cada passo completo, pra informar nivel de progresso 
+# Add barrinha progresso vizual (falar com o joao)

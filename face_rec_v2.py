@@ -45,7 +45,7 @@ class Video(object):
 
             Video.num_exp = Video.num_exp + 1
 
-            print(f'NumExp = {Video.num_exp}')
+            # print(f'NumExp = {Video.num_exp}')
 
             # Esses 2 só colocam o texto e quadrado no video da tela, são removiveis e nao essenciais
 
@@ -62,7 +62,7 @@ def gen(camera):
         frame = camera.get_video_facedec()
 
         # Video
-        cv2.imshow('Face_Rec', frame)
+        # cv2.imshow('Face_Rec', frame)
 
 # Achar um jeito de dar o break automaticamente [Achei sou foda]
 # Talvez um botão fisico seria uma boa pra parar o recon?
