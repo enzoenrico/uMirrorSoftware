@@ -1,6 +1,8 @@
 import pymongo
 from pymongo import MongoClient
 
+import info_mongodb
+
 import gather
 
 # Implementar sistema de login
@@ -8,9 +10,7 @@ import gather
 
 emotion = gather.data_gather()
 
-client = MongoClient(
-    "mongodb+srv://admin:admin@cluster0.cgya6.mongodb.net/?retryWrites=true&w=majority")
-
+client = MongoClient(info_mongodb.creds)
 
 def send():
     db = client.umirror
