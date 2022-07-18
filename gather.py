@@ -6,6 +6,7 @@ def data_gather():
     file_exp = open('expressions.txt', 'r')
     date_now = datetime.now()
 
+
     #Talvez substituir a lista por um dicionario, tipo {'felicidade': len(num_felicidade)}, talvez isso funcione
 
     list_emotions = {
@@ -16,7 +17,8 @@ def data_gather():
         "Medo" : 0,
         "Tristeza" : 0,
         "Surpresa" : 0,
-        "data" : str(date_now)
+        "Avg" : "",
+        # "data" : str(date_now)
     }
 
     with file_exp:
@@ -33,6 +35,7 @@ def data_gather():
     num_medo = lines_in_file.count('Medo \n')
     num_triste = lines_in_file.count('Triste \n')
     num_surpresa = lines_in_file.count('Surpresa \n')
+
         
     #implementar todas as emoções
     list_emotions.update({"Felicidade": num_feliz})
@@ -42,11 +45,19 @@ def data_gather():
     list_emotions.update({"Medo": num_medo})
     list_emotions.update({"Tristeza": num_triste})
     list_emotions.update({"Surpresa": num_surpresa})
+    # list_emotions.update({"Avg": avg})
 
+# TypeError: '>' not supported between instances of 'str' and 'int' 👇
+
+    avg = max(list_emotions, key=list_emotions.get)
+    
+    list_emotions["Avg"] = avg
 
     # print(f'[-]Emoções totais: {len(lines_in_file)}')
     # print(f'[+]Emoções distintas: {len(list_emotions)}')
     # print(list_emotions)
+    
+
     
     return list_emotions
     #Assign um valor para cada emoção, quando uma aparecer mudar uma var indicando seu valor, jogar os valores em uma lista e fazer sua média ou pegar o que mais aparece

@@ -49,6 +49,8 @@ class Video(object):
 
             # Esses 2 só colocam o texto e quadrado no video da tela, são removiveis e nao essenciais
 
+            #Mas e colocar so o quadrado e o exto na tela sem o video
+
             cv2.putText(fr, Video.face_pred(fc, roi),
                         (x, y), font, 0.5, (0, 255, 0), 2)
             cv2.rectangle(fr, (x, y), (x+w, y+z), (241, 226, 180), 2)
@@ -62,7 +64,11 @@ def gen(camera):
         frame = camera.get_video_facedec()
 
         # Video
-        # cv2.imshow('Face_Rec', frame)
+        cv2.imshow('Face_Rec', frame)
+        # Como mostrar apenas o quadrado, e não o vídeo
+        #Nova função? Ler a posição do rosto pela video facedec e entao reendenizar um feed de video novo
+
+        # cv2.imshow('Face Square')
 
 # Achar um jeito de dar o break automaticamente [Achei sou foda]
 # Talvez um botão fisico seria uma boa pra parar o recon?

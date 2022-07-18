@@ -1,9 +1,5 @@
-from concurrent.futures import thread
 from face_rec_v2 import Video
-import send2server
-import face_rec_v2
-import gather
-
+import send2server, face_rec_v2, gather
 import time
 
 if __name__ == "__main__":
@@ -15,6 +11,7 @@ if __name__ == "__main__":
 
     print('[+]Iniciando recolhimento de dados')
     print(gather.data_gather())
+    # print(f"[+]Emoção mais prevalescente: {gather.data_gather['Avg']}")
 
     print('[+]Enviando dados para o Servidor...')
     send2server.send()
@@ -24,4 +21,4 @@ if __name__ == "__main__":
 # Trabalhando em normalizar imagem, mudar niveis de contraste luz etc
 
 # Adicionar um ping para um servidor a cada passo completo, pra informar nivel de progresso 
-# Add barrinha progresso vizual (falar com o joao)
+# Add barrinha progresso visual (falar com o joao)
