@@ -4,7 +4,6 @@ import time
 import emotion_dec
 import numpy as np
 
-import threading
 import time
 
 faceCasc = cv2.CascadeClassifier('haar_cascade.xml')
@@ -32,6 +31,11 @@ class Video(object):
         _, fr = self.video.read()
         cor_fr = cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY)
         faces = faceCasc.detectMultiScale(cor_fr, 1.3, 5)
+
+
+        # print(f"[!]Faces: {faces} \n")
+
+        
 
         for (x, y, w, z) in faces:
 

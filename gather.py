@@ -16,9 +16,9 @@ def data_gather():
         "Nojo" : 0,
         "Medo" : 0,
         "Tristeza" : 0,
-        "Surpresa" : 0,
-        "Avg" : "",
-        # "data" : str(date_now)
+        "Surpresa" : 0
+        # "Avg" : "",
+        # "data" : ""
     }
 
     with file_exp:
@@ -46,6 +46,7 @@ def data_gather():
     list_emotions.update({"Tristeza": num_triste})
     list_emotions.update({"Surpresa": num_surpresa})
     # list_emotions.update({"Avg": avg})
+    # list_emotions.update({"data": str(date_now)})
 
 # TypeError: '>' not supported between instances of 'str' and 'int' 👇
 

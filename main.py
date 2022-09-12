@@ -1,6 +1,10 @@
 from face_rec_v2 import Video
 import send2server, face_rec_v2, gather
 import time
+import webbrowser
+new = 2
+
+url = 'file:///D:/Projeto_Final_2022/interface_web/red/index.html'
 
 if __name__ == "__main__":
     print('[+]Inicializando...')
@@ -17,6 +21,9 @@ if __name__ == "__main__":
     send2server.send()
     print('[+]Dados enviados com sucesso!')
     # send2server.send()
+
+    print('[+]Redirecionando para o website...')
+    webbrowser.open(url, new=new)
 
 # Trabalhando em normalizar imagem, mudar niveis de contraste luz etc
 
