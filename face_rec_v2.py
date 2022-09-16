@@ -66,9 +66,10 @@ def gen(camera):
     # file_exp_read = open("expressions.txt", "r")
     while True:
         frame = camera.get_video_facedec()
+        real_img = cv2.flip(frame, 1)
 
         # Video
-        cv2.imshow('Face_Rec', frame)
+        cv2.imshow('Face_Rec', real_img)
         # Como mostrar apenas o quadrado, e não o vídeo
         #Nova função? Ler a posição do rosto pela video facedec e entao reendenizar um feed de video novo
 
